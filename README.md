@@ -1,5 +1,10 @@
 # Getting Started with Auction Apartment React App
 
+The deployed site is visible in that url(for now):
+https://dev.dj8h30gqeofog.amplifyapp.com/
+
+# Getting Started with Auction Apartment React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
