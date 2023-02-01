@@ -1,0 +1,40 @@
+/* .chevron::after {
+  color: #4f46e5;
+  font-size: 22px;
+  font-weight: 600;
+  content: "❯";
+  margin-left: 1em;
+} */
+
+/* Accordion signup */
+.MuiPaper-root.MuiAccordion-root.Mui-expanded {
+  margin: 0;
+  background: none;
+  box-shadow: none;
+}
+.MuiButtonBase-root.MuiAccordionSummary-root.Mui-expanded {
+  min-height: unset;
+}
+
+.ss {
+  border-right: 1px solid transparent;
+  position: relative;
+  border-image: linear-gradient(
+      0deg,
+      rgba(229, 231, 235) 40%,
+      rgba(229, 231, 235, 0) 40%,
+      rgba(229, 231, 235, 0) 60%,
+      rgba(229, 231, 235, 1) 60%
+    )
+    1;
+}
+
+.ss::after {
+  content: "Or";
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  transform: translate(50%, -50%);
+}
