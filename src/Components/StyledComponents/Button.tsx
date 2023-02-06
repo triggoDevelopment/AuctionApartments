@@ -6,7 +6,12 @@ export type ExtendButtonProps = {
   endIcon?: React.ReactNode;
 } & ButtonProps;
 
-const Button = ({ startIcon, endIcon, sx, ...props }: ExtendButtonProps) => {
+const Button: React.FC<ExtendButtonProps> = ({
+  startIcon,
+  endIcon,
+  sx,
+  ...props
+}) => {
   return (
     <MuiButton
       sx={{

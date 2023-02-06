@@ -1,3 +1,3 @@
-import { StyledTextField } from "./StyledTextField";
+import { StyledTextField } from "./TextFieldStyles";
 
 export { StyledTextField };

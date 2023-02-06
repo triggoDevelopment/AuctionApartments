@@ -36,6 +36,7 @@ export const palette = {
   grey: {
     50: "#F9FAFB",
     100: "#E5E7EB", //grey/60
+    300: "#6B7280", //helper text
     500: "#9CA3AF",
   },
 };

@@ -1,12 +1,16 @@
-import React from "react";
-import { Checkbox, FormControl, Grid, Typography } from "@mui/material";
+import { Checkbox, FormControl, Grid, Link, Typography } from "@mui/material";
 import { Button } from "../StyledComponents";
-
 interface IProps {
   expanded: boolean;
+  isSignup: boolean;
+  setIsSignup: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SignupBottom: React.FC<IProps> = ({ expanded }: IProps) => {
+const SignupBottom: React.FC<IProps> = ({
+  expanded,
+  isSignup,
+  setIsSignup,
+}): JSX.Element => {
   return (
     <>
       <FormControl
@@ -51,7 +55,9 @@ const SignupBottom: React.FC<IProps> = ({ expanded }: IProps) => {
         mt={2}
       >
         <Grid item xs={12} lg={6} sx={{ pr: 2, maxWidth: "50%" }}>
-          <Button fullWidth>Sign Up</Button>
+          <Button type="submit" fullWidth>
+            Sign Up
+          </Button>
         </Grid>
         <Grid
           item
@@ -65,13 +71,7 @@ const SignupBottom: React.FC<IProps> = ({ expanded }: IProps) => {
         >
           <Typography color="text.secondary">
             Have an account?{" "}
-            <Typography
-              sx={{ textDecoration: "underline" }}
-              component="span"
-              color="primary.main"
-            >
-              Login
-            </Typography>
+            <Button onClick={() => setIsSignup(false)}>Login</Button>
           </Typography>
         </Grid>
       </Grid>

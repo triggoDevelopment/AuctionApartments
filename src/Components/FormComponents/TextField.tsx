@@ -1,8 +1,8 @@
-import React from "react";
-
-import { InputAdornment, TextFieldProps } from "@mui/material";
-import { StyledTextField } from "../../styles/components";
+import { Button, InputAdornment, TextFieldProps } from "@mui/material";
 import { Controller } from "react-hook-form";
+import ErrorOutlineOutlined from "@mui/icons-material/ErrorOutlineOutlined";
+import HelperText from "../StyledComponents/HelperText";
+import { StyledTextField } from "../../styles/components";
 
 export type ExtendTextFieldProps = {
   startAdornment?: React.ReactNode;
@@ -12,7 +12,7 @@ export type ExtendTextFieldProps = {
   control: any;
 } & TextFieldProps;
 
-const MyTextField = ({
+const MyTextField: React.FC<ExtendTextFieldProps> = ({
   endAdornment,
   startAdornment,
   label,
@@ -22,7 +22,7 @@ const MyTextField = ({
   sx,
   size = "small",
   ...props
-}: ExtendTextFieldProps) => {
+}): JSX.Element => {
   return (
     <Controller
       name={name}
@@ -45,7 +45,17 @@ const MyTextField = ({
             ),
           }}
           error={!!fieldState.error}
-          helperText={fieldState.error ? fieldState.error.message : "cs"}
+          helperText={
+            <HelperText
+              icon={
+                <ErrorOutlineOutlined
+                  sx={{ fontSize: "0.6rem" }}
+                  color="error"
+                />
+              }
+              text={fieldState.error?.message}
+            />
+          }
         />
       )}
     />

@@ -6,6 +6,7 @@ export const StyledTextField = styled(TextField)(({ theme }) => ({
     backgroundColor: theme.palette.common.white,
     zIndex: 10,
   },
+
   "& .MuiInputBase-input.MuiOutlinedInput-input": {
     zIndex: 10,
   },
@@ -28,10 +29,24 @@ export const StyledTextField = styled(TextField)(({ theme }) => ({
         "box-shadow",
       ]),
     },
+  "& .MuiInputLabel-root.Mui-error": {
+    color: theme.palette.primary.main,
+  },
+  "& .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused.Mui-error .MuiOutlinedInput-notchedOutline":
+    {
+      border: `1px solid ${theme.palette.error.main}`,
+    },
+  "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "green",
+  },
   "& .MuiSvgIcon-root": {
     zIndex: 10,
   },
 
+  "& .MuiFormHelperText-root": {
+    color: theme.palette.grey[300],
+    marginLeft: 0,
+  },
   "& label": {
     color: theme.palette.primary.main,
     left: "-0.7rem",

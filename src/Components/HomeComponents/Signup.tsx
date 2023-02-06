@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import Grid from "@mui/material/Grid";
 import { TextField } from "../FormComponents";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -7,14 +7,24 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { SignupSchema } from "../Validation";
 import { ValidationTextList, SignupCollapse, SignupBottom } from ".";
 
+interface IProps {
+  isSignup: boolean;
+  setIsSignup: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 interface IFormInputs {
   fname: string;
   lname: string;
 }
 
-const Signup: React.FC = () => {
+const Signup: React.FC<IProps> = ({ isSignup, setIsSignup }) => {
   const [expanded, setExpanded] = useState(false);
-  const { handleSubmit, control, formState } = useForm<IFormInputs>({
+  const {
+    handleSubmit,
+    control,
+    watch,
+    formState: { errors },
+  } = useForm<IFormInputs>({
     resolver: yupResolver(SignupSchema),
   });
 
@@ -63,7 +73,7 @@ const Signup: React.FC = () => {
               sx={{ width: { xs: "100%", sm: "48%", md: "100%", lg: "48%" } }}
               control={control}
               name="lastName"
-              label="lastName"
+              label="Last Name"
             />
           </Grid>
           <TextField
@@ -90,7 +100,7 @@ const Signup: React.FC = () => {
           <TextField
             fullWidth
             control={control}
-            name="Password"
+            name="password"
             label="Password"
             placeholder="Create Password"
           />
@@ -108,7 +118,11 @@ const Signup: React.FC = () => {
         expanded={expanded}
         control={control}
       />
-      <SignupBottom expanded={expanded} />
+      <SignupBottom
+        expanded={expanded}
+        isSignup={isSignup}
+        setIsSignup={setIsSignup}
+      />
     </Box>
   );
 };
