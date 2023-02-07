@@ -7,17 +7,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { SignupSchema } from "../Validation";
 import { ValidationTextList, SignupCollapse, SignupBottom } from ".";
 
-interface IProps {
-  isSignup: boolean;
-  setIsSignup: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 interface IFormInputs {
   fname: string;
   lname: string;
 }
 
-const Signup: React.FC<IProps> = ({ isSignup, setIsSignup }) => {
+const Signup: React.FC = () => {
   const [expanded, setExpanded] = useState(false);
   const {
     handleSubmit,
@@ -118,11 +113,7 @@ const Signup: React.FC<IProps> = ({ isSignup, setIsSignup }) => {
         expanded={expanded}
         control={control}
       />
-      <SignupBottom
-        expanded={expanded}
-        isSignup={isSignup}
-        setIsSignup={setIsSignup}
-      />
+      <SignupBottom expanded={expanded} />
     </Box>
   );
 };

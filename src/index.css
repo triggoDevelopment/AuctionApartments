@@ -16,3 +16,11 @@ code {
 ul li::marker {
   font-size: 0.7rem;
 }
+
+.link {
+  color: #6366f1;
+}
+
+.link:hover {
+  text-decoration: none;
+}

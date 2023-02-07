@@ -1,16 +1,12 @@
-import { Checkbox, FormControl, Grid, Link, Typography } from "@mui/material";
+import { Checkbox, FormControl, Grid, Typography } from "@mui/material";
 import { Button } from "../StyledComponents";
+import { Link } from "react-router-dom";
+
 interface IProps {
   expanded: boolean;
-  isSignup: boolean;
-  setIsSignup: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SignupBottom: React.FC<IProps> = ({
-  expanded,
-  isSignup,
-  setIsSignup,
-}): JSX.Element => {
+const SignupBottom: React.FC<IProps> = ({ expanded }): JSX.Element => {
   return (
     <>
       <FormControl
@@ -71,7 +67,9 @@ const SignupBottom: React.FC<IProps> = ({
         >
           <Typography color="text.secondary">
             Have an account?{" "}
-            <Button onClick={() => setIsSignup(false)}>Login</Button>
+            <Link className="link" to="/login">
+              Login
+            </Link>
           </Typography>
         </Grid>
       </Grid>

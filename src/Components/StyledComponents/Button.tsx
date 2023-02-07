@@ -1,17 +1,7 @@
 import React from "react";
 import { Button as MuiButton, ButtonProps } from "@mui/material";
 
-export type ExtendButtonProps = {
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
-} & ButtonProps;
-
-const Button: React.FC<ExtendButtonProps> = ({
-  startIcon,
-  endIcon,
-  sx,
-  ...props
-}) => {
+const Button: React.FC<ButtonProps> = ({ size = "large", sx, ...props }) => {
   return (
     <MuiButton
       sx={{
@@ -19,8 +9,7 @@ const Button: React.FC<ExtendButtonProps> = ({
         boxShadow: "none",
         textTransform: "none",
       }}
-      startIcon={startIcon}
-      endIcon={endIcon}
+      size={size}
       {...props}
       variant="contained"
     />
